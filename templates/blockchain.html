@@ -1,0 +1,53 @@
+
+{% block content %}
+
+	<h1>Current Verified Blockchain</h1>
+	<p>Backed by decentralized nodes.</p>
+	<div class="container">
+		<div class="card-columns">
+			{% for block in blockchain.chain %}
+			<div class="card border-primary mb-3" style="width: 716rem;">
+				<div class="card-body">
+				  <h5 class="card-title">Block<small class="text-muted">({{loop.index}})</small></h5>
+				</div>
+				<ul class="list-group list-group-flush">
+				  <li class="list-group-item">
+				  	<span class="">Hash</span>
+				  	<br>
+				  	<div class="text-truncate">
+				  		<small>{{ block.hash }}</small>
+				  	</div>
+				  </li>
+					<li class="list-group-item">
+					<span class="">Hash of previous block</span>
+				  	<br>
+
+				  	<div class="text-truncate">
+				  		<small>{{ block.previous }}</small>
+				  	</div>
+				  </li>
+				  <li class="list-group-item">
+				  	<span class="">Timestamp</span><br>
+				  	<div class="text-truncate text-muted">
+				  		<small>{{ block.timestamp }}</small>
+				  	</div>
+				  </li>
+				  <li class="list-group-item">
+				  	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse{{loop.index}}" aria-expanded="false" aria-controls="collapse">
+				   		View Transactions
+				  	</button>
+				  </li>
+
+				</ul>
+			</div>
+			
+			
+		{% endfor %}
+	</div>
+</div>
+
+	
+
+
+
+{% endblock content %}
